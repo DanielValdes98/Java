@@ -1,0 +1,13 @@
+
+public class PreubaEncapsulamiento {
+	public static void main(String[] args) {
+		Cuenta cuenta = new Cuenta();
+		Cliente cliente = new Cliente();
+		
+		cliente.nombre = "Daniel";
+		cliente.documento = "F234SGH6";
+		cliente.telefono = "19485849";
+		
+				
+	}
+}

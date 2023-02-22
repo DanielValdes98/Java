@@ -1,0 +1,8 @@
+
+public class TestFuncionario {
+	public static void main(String[] args) {
+		Funcionario funcionario = new Funcionario();
+		Daniel.setNombre("Daniel");
+		Daniel.setDocumento("1144208104");
+	}
+}

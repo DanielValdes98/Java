@@ -1,0 +1,12 @@
+
+public class PruebaConstructor {
+	public static void main(String[] args) {
+		Cuenta cuenta = new Cuenta(55);
+		Cuenta cuenta2 = new Cuenta(30);
+		//cuenta.setAgencia(-4); // Se elimina el metodo setAgencia
+		
+		System.out.println(cuenta.getAgencia());
+		System.out.println(Cuenta.getTotal());
+		
+	}
+}

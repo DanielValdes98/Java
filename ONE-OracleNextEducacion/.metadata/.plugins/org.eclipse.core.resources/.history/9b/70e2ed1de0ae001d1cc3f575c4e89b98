@@ -1,0 +1,18 @@
+
+public class TestReferencia2 {
+	public static void main(String[] args) {
+		
+		Cuenta cuentaUser = new Cuenta();
+		
+		// Opcion 1:
+		Cliente cliente = new Cliente();
+		cuentaUser.titular = cliente;
+		cuentaUser.titular.nombre = "Maurcio";
+		
+		//Opcion 2:
+		cuentaUser.titular = new Cliente();
+		cuentaUser.titular.nombre = "Daniel";
+		
+		System.out.println(cuentaUser.titular.nombre);
+	}
+}
