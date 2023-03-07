@@ -1,0 +1,4 @@
+
+public class ConversorTemperatura extends Conversor implements Convertir {
+
+}

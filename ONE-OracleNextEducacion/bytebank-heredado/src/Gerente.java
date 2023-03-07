@@ -1,5 +1,5 @@
 
-public class Gerente extends Funcionario{
+public class Gerente extends Funcionario implements Autenticable{
 	
 	
 	private String clave;
@@ -9,15 +9,15 @@ public class Gerente extends Funcionario{
 	}
 	
 	public boolean iniciarSesion(String clave) {
-		   if (this.clave == clave) {
-		        return true;
-		    } else {
-		        return false;
-		    }
+	   if (this.clave == clave) {
+	        return true;
+	    } else {
+	        return false;
+	    }
 	}
 	
 	// Sobre-escritura del método
 	public double getBonificacion() {
-		return super.getSalario() + super.getBonificacion();
+		return super.getSalario() + (super.getSalario()*0.05);
 	}
 }

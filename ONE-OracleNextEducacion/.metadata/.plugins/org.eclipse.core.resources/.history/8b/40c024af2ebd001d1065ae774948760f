@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class TestConversor {
+	
+	public static void main(String[] args) {
+		ArrayList<String> opcionesDivisas = new ArrayList<>();
+		opcionesDivisas.add("COP a USD");
+		opcionesDivisas.add("COP a Euros");
+		opcionesDivisas.add("COP a Libras Esterlinas");
+		opcionesDivisas.add("COP a Yen Japonés");
+		opcionesDivisas.add("COP a Won sul-coreano");
+		opcionesDivisas.add("USD a COP");
+		opcionesDivisas.add("Euros a COP");
+		opcionesDivisas.add("Libras Esterlinas a COP");
+		opcionesDivisas.add("Yen Japonés a COP");
+		opcionesDivisas.add("Won sul-coreano a COP");
+		
+		ArrayList<String> opcionesTemperatura = new ArrayList<>();
+		opcionesDivisas.add("Celcius a Farenheit");
+		opcionesDivisas.add("Celcius a Kelvin");
+		opcionesDivisas.add("Farenheit a Celcius");
+		opcionesDivisas.add("Kelvin a Kelvin");
+		opcionesDivisas.add("Kelvin a Farenheit");
+
+
+		ConversorMonedas casoMoneda = new ConversorMonedas(opcionesDivisas.get(0),1000);
+		System.out.println(casoMoneda.getOcpiones());
+		System.out.println(casoMoneda.getResultado());
+
+	}
+}

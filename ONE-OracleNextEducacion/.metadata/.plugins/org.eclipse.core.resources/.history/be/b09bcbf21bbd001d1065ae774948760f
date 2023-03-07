@@ -1,0 +1,10 @@
+
+public class ConversorMonedas implements Convertir{
+
+	@Override
+	public double Convertidor(double valor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

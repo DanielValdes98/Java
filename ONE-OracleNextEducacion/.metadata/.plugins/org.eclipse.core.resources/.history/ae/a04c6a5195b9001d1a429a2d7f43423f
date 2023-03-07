@@ -1,0 +1,148 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.awt.event.ActionEvent;
+
+public class App extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					App frame = new App();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	
+	Conexion db = new Conexion();
+	Connection cin = (Connection) db.getConnection();
+	
+	public App() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 514, 403);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 11, 478, 342);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("APP CRUD MYSQL");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(149, 11, 166, 45);
+		panel.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(201, 107, 235, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(201, 138, 235, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(201, 169, 106, 20);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setBounds(112, 110, 46, 14);
+		panel.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Edad");
+		lblNewLabel_2.setBounds(112, 141, 46, 14);
+		panel.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Fecha");
+		lblNewLabel_3.setBounds(112, 172, 46, 14);
+		panel.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Usuarios");
+		lblNewLabel_4.setBounds(209, 67, 46, 14);
+		panel.add(lblNewLabel_4);
+		
+		JButton btnNewButton = new JButton("INSERTAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String nombre;
+				String edad;
+				String fecha;
+				
+				nombre=textField.getText();
+				edad=textField_1.getText();
+				fecha=textField_2.getText();
+				
+				PreparableStatement ps;
+				
+				String insertar = "INSERT INTO `prueba`.`usuarios` (`Nombre`, `Edad`, `Fecha`) VALUES (?, ?, ?)";
+
+				try {
+					ps = (PreparableStatement) cin.prepareCall(insertar);
+					System.out.println("Insertando usuario");
+					((CallableStatement) ps).setString(1,nombre);
+					((CallableStatement) ps).setString(1,edad);
+					((CallableStatement) ps).setString(1,fecha);
+					
+					int registro = ((PreparedStatement) ps).executeUpdate();
+					if(registro > 0) {
+						JOptionPane.showMessageDialog(null, "Registro guardado","bien",JOptionPane.QUESTION_MESSAGE, null);
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");
+					}
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+			}
+		});
+		btnNewButton.setBounds(23, 262, 89, 23);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setBounds(129, 262, 89, 23);
+		panel.add(btnNewButton_1);
+	}
+}

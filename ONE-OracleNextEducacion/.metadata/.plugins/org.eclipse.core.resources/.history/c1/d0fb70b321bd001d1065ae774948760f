@@ -1,0 +1,29 @@
+
+public class Conversor {
+
+	private Object[] ocpiones;
+	private double valor;
+	private double resultado;
+	
+	public Conversor(Object[] opciones, double valor, double resultado) {
+		this.ocpiones = opciones;
+		this.valor = valor;
+		this.resultado = resultado;
+	}
+	
+	public Object[] getOcpiones() {
+		return ocpiones;
+	}
+	public void setOcpiones(Object[] ocpiones) {
+		this.ocpiones = ocpiones;
+	}
+	public double getValor() {
+		return valor;
+	}
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+
+	
+}

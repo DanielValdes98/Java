@@ -1,0 +1,10 @@
+
+public class ConversorMonedas extends Conversor implements Convertir{
+
+	@Override
+	public double Convertidor(double valor) {
+		
+		return 0;
+	}
+
+}

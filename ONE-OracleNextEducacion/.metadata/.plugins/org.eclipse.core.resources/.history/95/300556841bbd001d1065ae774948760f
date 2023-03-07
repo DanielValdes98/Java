@@ -1,0 +1,13 @@
+
+public class Conversor implements Convertir {
+
+	private double valor;
+
+	@Override
+	public double Convertidor(double valor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+}

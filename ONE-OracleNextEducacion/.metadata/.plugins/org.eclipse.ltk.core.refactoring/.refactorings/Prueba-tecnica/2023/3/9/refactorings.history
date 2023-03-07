@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;CRUD&apos; to &apos;Conexion&apos;&#x0D;&#x0A;- Original project: &apos;Prueba-tecnica&apos;&#x0D;&#x0A;- Original element: &apos;CRUD&apos;&#x0D;&#x0A;- Renamed element: &apos;Conexion&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CRUD&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{CRUD.java[CRUD" matchStrategy="1" name="Conexion" qualified="false" references="true" similarDeclarations="false" stamp="1677821819650" textual="false" version="1.0"/>
+</session>

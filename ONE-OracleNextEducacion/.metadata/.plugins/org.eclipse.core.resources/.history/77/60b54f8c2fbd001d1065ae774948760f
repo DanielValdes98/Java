@@ -1,0 +1,33 @@
+
+public class ConversorTemperatura extends Conversor implements Convertir {
+	
+	private double resultado;
+	
+	public ConversorTemperatura(String opciones, double valor) {
+		super(opciones, valor);
+		this.resultado = 0;
+	}
+
+	public double getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(double resultado) {
+		this.resultado = resultado;
+	}
+
+	@Override
+	public double Convertidor(double valor, String opcion) {
+		
+		switch (opcion) {
+		case value: {
+			
+			yield type;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + opcion);
+		}
+		return 0;
+	}
+
+}

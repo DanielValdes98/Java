@@ -1,0 +1,16 @@
+
+public class Conversor {
+
+	private Object[] ocpiones;
+	private int valor;
+	
+	public Object[] getOcpiones() {
+		return ocpiones;
+	}
+	public void setOcpiones(Object[] ocpiones) {
+		this.ocpiones = ocpiones;
+	}
+
+
+	
+}

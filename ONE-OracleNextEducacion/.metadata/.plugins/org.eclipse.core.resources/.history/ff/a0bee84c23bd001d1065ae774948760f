@@ -1,0 +1,6 @@
+import java.util.ArrayList;
+
+public interface Convertir {
+
+	public double Convertidor(double valor, ArrayList<String>  opcion);
+}

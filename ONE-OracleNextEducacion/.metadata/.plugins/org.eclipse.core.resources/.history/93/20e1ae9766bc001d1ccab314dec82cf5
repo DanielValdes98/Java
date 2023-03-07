@@ -1,0 +1,92 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+
+public class Conversor extends JFrame implements ActionListener, ItemListener {
+
+	private JPanel contentPane;
+	Object[] opcionesDivisas = {
+			"COP a USD",
+			"COP a Euros",
+			"COP a Libras Esterlinas",
+			"COP a Yen Japonés",
+			"COP a Won sul-coreano",
+			"USD a COP",
+			"Euros a COP",
+			"Libras Esterlinas a COP",
+			"Yen Japonés a COP" ,
+			"Won sul-coreano a COP"			
+			};
+	//Object unitChoice = JOptionPane.showInputDialog(null, "seleccione", "conversor", JOptionPane.QUESTION_MESSAGE, null, opcionesConversion, opcionesConversion[1]);
+
+	/**
+	 * Launch the application.
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Conversor frame = new Conversor();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Conversor(String valor) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 516, 367);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(22, 11, 468, 306);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+	
+		JLabel lblNewLabel_1 = new JLabel("Cantidad de dinero a convertir:");
+		lblNewLabel_1.setBounds(10, 60, 185, 14);
+		panel.add(lblNewLabel_1);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textPane.setEditable(false);
+		textPane.setEnabled(false);
+		textPane.setText(valor);
+		textPane.setBounds(10, 85, 106, 20);
+		panel.add(textPane);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

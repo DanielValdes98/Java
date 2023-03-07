@@ -1,0 +1,39 @@
+
+public class ConversorTemperatura extends Conversor implements Convertir {
+	
+	private double resultado;
+	
+	public ConversorTemperatura(String opciones, double valor) {
+		super(opciones, valor);
+		this.resultado = 0;
+	}
+
+	public double getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(double resultado) {
+		this.resultado = resultado;
+	}
+
+	@Override
+	public double Convertidor(double valor, String opcion) {
+		opcionesDivisas.add("Celcius a Kelvin");
+		opcionesDivisas.add("Farenheit a Celcius");
+		opcionesDivisas.add("Farenheit a Kelvin");
+		opcionesDivisas.add("Kelvin a Celcius");
+		opcionesDivisas.add("Kelvin a Farenheit");
+		
+		switch (opcion) {
+		case "Celcius a Farenheit": {
+			resultado = valor * 1.8 + 32;
+			System.out.println(resultado);
+			return resultado;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + opcion);
+		}
+		return 0;
+	}
+
+}

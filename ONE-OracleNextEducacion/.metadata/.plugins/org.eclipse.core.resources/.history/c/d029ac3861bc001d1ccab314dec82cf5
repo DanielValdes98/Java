@@ -1,0 +1,86 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+
+public class Conversor extends JFrame implements ActionListener, ItemListener {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	Object[] opcionesConversion = {"Conversor de monedas","Conversor de temperatura"};
+	private final JLabel lblNewLabel = new JLabel("Seleccione la opcion de la conversión:");
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Conversor frame = new Conversor(double v);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Conversor(double valor) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 516, 367);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 11, 480, 306);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		//JLabel lblNewLabel = new JLabel("CONVERSOR DE MONEDAS");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(10, 11, 198, 20);
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Ingrese la cantidad de dinero que desea convertir:");
+		lblNewLabel_1.setBounds(10, 69, 243, 14);
+		panel.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 94, 185, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+	}
+
+	public Conversor(String monto) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

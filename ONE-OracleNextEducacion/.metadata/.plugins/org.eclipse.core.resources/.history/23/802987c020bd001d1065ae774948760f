@@ -1,0 +1,67 @@
+
+public class ConversorMonedas extends Conversor implements Convertir{
+	
+	public ConversorMonedas(Object[] opciones, double valor) {
+		super(opciones, valor);
+	}
+
+	@Override
+	public double Convertidor(double valor) {
+		switch (opcionDivisaSeleccionada) {
+		case "COP a USD": {
+			resultado =  dinero / 4732.01;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "COP a Euros": {
+			resultado =  dinero / 5030.11;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "COP a Libras Esterlinas": {
+			resultado =  dinero / 5640.69;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "COP a Yen Japonés": {
+			resultado =  dinero / 34.80;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "COP a Won sul-coreano": {
+			resultado =  dinero / 3.62;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "USD a COP": {
+			resultado =  dinero * 4732.01;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "Euros a COP": {
+			resultado =  dinero * 5030.11;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "Libras Esterlinas a COP": {
+			resultado =  dinero * 5640.69;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "Yen Japonés a COP": {
+			resultado =  dinero * 34.80;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		case "Won sul-coreano a COP": {
+			resultado =  dinero * 3.62;
+			System.out.println(resultado);	
+			textField.setText(Double.toString(resultado));
+		}
+		default:
+			System.out.println("Opción por defecto, no es válida");
+		}
+		return 0;
+	}
+
+}

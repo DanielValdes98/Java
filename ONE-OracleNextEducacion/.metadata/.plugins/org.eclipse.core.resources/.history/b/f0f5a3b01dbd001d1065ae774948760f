@@ -1,0 +1,9 @@
+
+public class Conversor {
+
+	private Object[] ocpiones;
+	private int valor;
+
+
+	
+}

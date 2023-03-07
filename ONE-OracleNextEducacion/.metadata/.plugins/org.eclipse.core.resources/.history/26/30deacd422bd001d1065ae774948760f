@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+
+public class ConversorMonedas extends Conversor implements Convertir{
+	
+	
+	public ConversorMonedas(ArrayList<String> opciones, double valor, double resultado) {
+		super(opciones, valor, resultado);
+	}
+
+	@Override
+	public double Convertidor(double valor, ArrayList<String>  opcion) {
+		double resultado;
+		switch (opcion.toString()) {
+		case "COP a USD": {
+			resultado =  valor / 4732.01;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "COP a Euros": {
+			resultado =  valor / 5030.11;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "COP a Libras Esterlinas": {
+			resultado =  valor / 5640.69;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "COP a Yen Japonés": {
+			resultado =  valor / 34.80;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "COP a Won sul-coreano": {
+			resultado =  valor / 3.62;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "USD a COP": {
+			resultado =  valor * 4732.01;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "Euros a COP": {
+			resultado =  valor * 5030.11;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "Libras Esterlinas a COP": {
+			resultado =  valor * 5640.69;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "Yen Japonés a COP": {
+			resultado =  valor * 34.80;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		case "Won sul-coreano a COP": {
+			resultado =  valor * 3.62;
+			System.out.println(resultado);	
+			return resultado;
+		}
+		default:
+			System.out.println("Opción por defecto, no es válida");
+		}
+		return 0;
+	}
+
+}
