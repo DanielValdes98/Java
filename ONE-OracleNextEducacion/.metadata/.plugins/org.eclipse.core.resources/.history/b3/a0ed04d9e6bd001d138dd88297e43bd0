@@ -1,0 +1,59 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class MenuSeleccion extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuSeleccion frame = new MenuSeleccion();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MenuSeleccion() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		
+		// Menu de selección de conversor
+		Object[] opcionesConversor = {"Conversor de monedas","Conversor de temperatura"};
+		Object opcionConversorSeleccionada = JOptionPane.showOptionDialog(null, "Seleccione el tipo de conversor:", "Conversor Challenge", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, opcionesConversor, opcionesConversor[0]);
+		
+		if(opcionConversorSeleccionada.equals(opcionesConversor[0])) {
+			System.out.println("Conversor monedas");
+			System.out.println(opcionConversorSeleccionada);
+			//JOptionPane.showMessageDialog(null, opcionConversorSeleccionada);
+			Conversor conversorMoneda = new ConversorMonedas(opcionConversorSeleccionada.toString());
+			conversorMoneda.setVisible(true);
+			
+		} else if (opcionConversorSeleccionada.equals(opcionesConversor[1])) {
+			System.out.println("Conversor temperatura");
+			//Conversor conversorTemperatura = new ConversorTemperatura("COP a USD",0);
+			this.setVisible(true);
+		} else {
+			System.out.println("Error, opcion no registrada en nuestro sistema");
+		}
+	}
+
+}
