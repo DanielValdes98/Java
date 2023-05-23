@@ -1,5 +1,0 @@
-
-public interface Convertir {
-
-	public double Convertidor(double valor, Object[] opcion);
-}

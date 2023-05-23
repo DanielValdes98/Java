@@ -1,0 +1,5 @@
+package com.latam.alura.tienda.modelo;
+
+public class ItemsPedido {
+
+}

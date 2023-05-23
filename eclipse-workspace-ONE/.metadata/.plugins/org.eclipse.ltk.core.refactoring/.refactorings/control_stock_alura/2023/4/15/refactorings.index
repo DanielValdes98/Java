@@ -1,0 +1,5 @@
+1681010645011	Extract method 'extracted'
+1681057439579	Rename type 'PersistenciaProducto'
+1681059949496	Rename package 'com.alura.jdbc.persistencia'
+1681060001073	Rename local variable 'persistenciaProducto'
+1681060041275	Rename method 'guardarProducto'

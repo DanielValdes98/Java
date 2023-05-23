@@ -1,0 +1,88 @@
+package com.latam.alura.tienda.prueba;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ClienteDao;
+import com.latam.alura.tienda.dao.PedidoDao;
+import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.modelo.Categoria;
+import com.latam.alura.tienda.modelo.Cliente;
+import com.latam.alura.tienda.modelo.ItemsPedido;
+import com.latam.alura.tienda.modelo.Pedido;
+import com.latam.alura.tienda.modelo.Producto;
+import com.latam.alura.tienda.utils.JPAUtils;
+
+public class RegistroDePedido {
+
+	public static void main(String[] args) {
+		registrarProducto();
+		
+		// Crea el entity con metodo estatico. Inicia la conexion:
+		EntityManager em = JPAUtils.getEntityManager(); 
+		
+		ProductoDao productoDao = new ProductoDao(em);
+		Producto producto = productoDao.consultaPorId(1l);
+		
+		ClienteDao clienteDao = new ClienteDao(em);
+		PedidoDao pedidoDao = new PedidoDao(em);
+				
+		Cliente cliente = new Cliente("Daniel","1144208104");
+		Pedido pedido = new Pedido(cliente);
+		pedido.agregarItems(new ItemsPedido(5, producto, pedido));
+		
+		// Realizamos todas las transacciones:
+		em.getTransaction().begin();
+		
+		clienteDao.guardar(cliente);
+		pedidoDao.guardar(pedido);
+		
+		// Cerramos la conexion:
+		em.getTransaction().commit();
+		//em.close();
+		
+		BigDecimal valorTotalVendido =  pedidoDao.valorTotalVendido();
+		System.out.println("Valor total vendido: " + valorTotalVendido);
+		
+		List<Object[]> relatorio = pedidoDao.relatorioDeVentas();
+		for(Object[] obj:relatorio) {
+			System.out.println(obj[0]);
+			System.out.println(obj[1]);
+			System.out.println(obj[2]);
+		}
+		
+		List<RelatorioDeVentaVO> relatorioVO = pedidoDao.relatorioDeVentasVO();
+		for(Object[] obj:relatorio) {
+			System.out.println(obj[0]);
+			System.out.println(obj[1]);
+			System.out.println(obj[2]);
+		
+		
+	}
+
+	private static void registrarProducto() {
+		Categoria celulares = new Categoria("CELULARES");
+		Producto celular = new Producto("Xiaomi","Nuevo 10/10",new BigDecimal("850"),celulares);
+
+		 // Crea el entity con metodo estatico. Inicia la conexion:
+		EntityManager em = JPAUtils.getEntityManager(); 
+		
+		//Contiene todos los métodos de consulta (CRUD:
+		ProductoDao productoDao = new ProductoDao(em); // Instancia la productoDao
+		CategoriaDao categoriaDao = new CategoriaDao(em); // Instancia la categoriaDao
+		
+		// Realizamos todas las transacciones:
+		em.getTransaction().begin();
+		
+		productoDao.guardar(celular); // Metodo guardar
+		categoriaDao.guardar(celulares); // Agrega el id de categoria dentro de la tabla producto
+		
+		// Cerramos la conexion:
+		em.getTransaction().commit();
+		em.close();
+	}
+
+}

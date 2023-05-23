@@ -1,0 +1,35 @@
+package com.latam.alura.tienda.modelo;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="items_pedido")
+public class ItemsPedido {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private int cantidad;
+	private BigDecimal precioUnitario;
+	
+	@ManyToOne
+	private Producto producto;
+	@ManyToOne
+	private Pedido pedido;
+	
+	// A un item_pedido se le puede relacionar 1 producto y 1 pedido:
+	// itempedido 1 -> producto 1 -> Pedido 2
+	// itempedido 2 -> producto 2 -> Pedido 2
+	// itempedido 3 -> producto 1 -> Pedido 1
+	// itempedido 4 -> producto 3 -> Pedido 1
+
+}

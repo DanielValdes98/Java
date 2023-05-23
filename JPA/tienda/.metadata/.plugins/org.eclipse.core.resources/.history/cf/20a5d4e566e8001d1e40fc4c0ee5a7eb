@@ -1,0 +1,13 @@
+package com.latam.alura.tienda.modelo;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="electronicos")
+public class Electronico extends Producto{
+	
+	private String marca;
+	private String modelo;
+
+}

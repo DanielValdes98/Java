@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class OSuma {
+	public static void main(String args[]) {
+		Scanner SC = new Scanner(System.in);
+		String nombre = "";
+		int a = 0, b = 0, resultado = 0;
+		
+		System.out.println("¿Cuál es tu nombre?: ");
+		nombre = SC.nextline();
+
+		System.out.println("Primer valor: ");
+		a = SC.nextInt();
+		
+		System.out.println("Segundo valor: ");
+		b = SC.nextInt();
+		
+	}
+}

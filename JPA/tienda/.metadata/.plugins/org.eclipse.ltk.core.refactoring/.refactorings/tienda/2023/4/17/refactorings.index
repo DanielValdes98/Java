@@ -1,0 +1,4 @@
+1682271673681	Move 'persistence.xml' to 'META-INF'
+1682291207182	Rename type 'JAPUtils'
+1682293409634	Copy compilation unit
+1682298530185	Extract method 'registrarProducto'

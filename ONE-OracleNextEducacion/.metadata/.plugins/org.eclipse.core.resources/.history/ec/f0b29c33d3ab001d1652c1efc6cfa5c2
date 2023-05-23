@@ -1,9 +1,0 @@
-
-public class TestReferencia2 {
-	public static void main(String[] args) {
-		Cuenta cuentaUser = new Cuenta();
-		cuentaUser.titular.nombre = "Mauricio";
-		
-		System.out.println(cuentaUser.titular);
-	}
-}

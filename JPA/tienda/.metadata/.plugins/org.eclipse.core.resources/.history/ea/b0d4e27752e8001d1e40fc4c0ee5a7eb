@@ -1,0 +1,26 @@
+package com.latam.alura.tienda.prueba;
+
+import java.io.FileNotFoundException;
+
+import javax.persistence.EntityManager;
+
+import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ClienteDao;
+import com.latam.alura.tienda.dao.PedidoDao;
+import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.utils.JPAUtils;
+
+public class LoadRecords {
+	public static void cargarRegistros() throws FileNotFoundException {
+		EntityManager em = JPAUtils.getEntityManager();
+		CategoriaDao categoriaDao = new CategoriaDao(em);
+		ProductoDao productoDao = new ProductoDao(em);
+		ClienteDao clienteDao = new ClienteDao(em);
+		PedidoDao pedidoDao = new PedidoDao(em);
+		
+		LoadCategoria("categoria",categoriaDao,em);
+		LoadProducto("producto",productoDao, categoriaDao,em);
+		LoadCliente("cliente",clienteDao,em);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.latam.alura.tienda.modelo;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class CategoriaId {
+
+	private String nombre;
+	private String password;
+}

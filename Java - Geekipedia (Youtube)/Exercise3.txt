@@ -1,0 +1,7 @@
+public class Suma {
+	public static void main(String args[]) {
+		int numeroA = 6;
+		int numeroB = 13;
+		int resultado = numeroA + numeroB;
+	}
+}

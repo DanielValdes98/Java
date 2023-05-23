@@ -1,0 +1,60 @@
+package com.latam.alura.tienda.dao;
+
+import javax.persistence.EntityManager;
+
+import com.latam.alura.tienda.modelo.Pedido;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+public class ClienteDao {
+	
+	private EntityManager em;
+	
+	public ClienteDao(EntityManager em) {
+		this.em = em;
+	}
+
+	public void guardar(Pedido pedido) {
+		this.em.persist(pedido);
+	}
+	
+	public Pedido consultaPorId(Long id) {
+		return em.find(Pedido.class, id);
+	}
+	
+    public void actualizar(Pedido pedido) {
+        this.em.merge(pedido);
+    }
+
+    public void remover(Pedido pedido) {
+    	pedido=this.em.merge(pedido);
+        this.em.remove(pedido);
+    }
+    
+    // Metodo para consultar todos los elementos de la tabla pedido:
+    public List<Pedido> consultarTodos(){
+    	String jqpl = "SELECT P FROM pedido AS P";
+    	return em.createQuery(jqpl,Pedido.class).getResultList();
+    }
+    
+    public List<Pedido> consultarPorNombre(String nombre){
+    	String jqpl = "SELECT P FROM pedido AS P WHERE P.nombre = :nombre";
+    	return em.createQuery(jqpl,Pedido.class).setParameter("nombre", nombre).getResultList();
+    }
+    
+    // En la consulta se debe poner el nombre de la entidad (pedido) y no en el de la tabla:
+    public List<Pedido> consultarPorNombreCategoria(String nombre){
+    	String jqpl = "SELECT P FROM pedido AS P WHERE P.categoria.nombre = :nombre";
+    	return em.createQuery(jqpl,Pedido.class).setParameter("nombre", nombre).getResultList();
+    }
+    
+    public BigDecimal consultarPrecioPorNombrepedido(String nombre){
+    	String jqpl = "SELECT P.precio FROM pedido AS P WHERE P.nombre = :nombre";
+    	return em.createQuery(jqpl,BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
+    }
+      
+}
+
+
+

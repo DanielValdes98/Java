@@ -1,0 +1,44 @@
+package com.latam.alura.tienda.prueba;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.modelo.Categoria;
+import com.latam.alura.tienda.modelo.Producto;
+import com.latam.alura.tienda.utils.JPAUtils;
+
+public class RegistroDePedido {
+
+	public static void main(String[] args) {
+		registrarProducto();
+	}
+
+	private static void registrarProducto() {
+		Categoria celulares = new Categoria("CELULARES");
+		Producto celular = new Producto("Xiaomi","Nuevo 10/10",new BigDecimal("850"),celulares);
+
+		 // Crea el entity con metodo estatico. Inicia la conexion:
+		EntityManager em = JPAUtils.getEntityManager(); 
+		
+		//Contiene todos los métodos de consulta (CRUD:
+		ProductoDao productoDao = new ProductoDao(em); // Instancia la productoDao
+		CategoriaDao categoriaDao = new CategoriaDao(em); // Instancia la categoriaDao
+		
+		// Realizamos todas las transacciones:
+		em.getTransaction().begin();
+		
+		productoDao.guardar(celular); // Metodo guardar
+		categoriaDao.guardar(celulares); // Agrega el id de categoria dentro de la tabla producto
+		
+		// Cerramos la conexion:
+		em.getTransaction().commit();
+		em.close();
+	}
+
+}

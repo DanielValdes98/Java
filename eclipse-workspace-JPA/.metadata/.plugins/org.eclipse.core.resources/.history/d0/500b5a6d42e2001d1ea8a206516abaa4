@@ -1,0 +1,53 @@
+package com.latam.alura.tienda.dao;
+
+import javax.persistence.EntityManager;
+
+import com.latam.alura.tienda.modelo.Producto;
+
+import java.util.List;
+
+public class ProductoDao {
+	
+	private EntityManager em;
+	
+	public ProductoDao(EntityManager em) {
+		this.em = em;
+	}
+
+	public void guardar(Producto producto) {
+		this.em.persist(producto);
+	}
+	
+	public Producto consultaPorId(Long id) {
+		return em.find(Producto.class, id);
+	}
+	
+    public void actualizar(Producto producto) {
+        this.em.merge(producto);
+    }
+
+    public void remover(Producto producto) {
+    	producto=this.em.merge(producto);
+        this.em.remove(producto);
+    }
+    
+    // Metodo para consultar todos los elementos de la tabla producto:
+    public List<Producto> consultarTodos(){
+    	String jqpl = "SELECT P FROM Producto AS P";
+    	return em.createQuery(jqpl,Producto.class).getResultList();
+    }
+    
+    public List<Producto> consultarPorNombre(String nombre){
+    	String jqpl = "SELECT P FROM Producto AS P WHERE P.nombre = :nombre";
+    	return em.createQuery(jqpl).setParameter("nombre", nombre).getResultList();
+    }
+    
+    public List<Producto> consultarPorNombreCategoria(String nombre){
+    	String jqpl = "SELECT P FROM Categoria AS P WHERE P.nombre = :nombre";
+    	return em.createQuery(jqpl).setParameter("nombre", nombre).getResultList();
+    }
+    
+}
+
+
+

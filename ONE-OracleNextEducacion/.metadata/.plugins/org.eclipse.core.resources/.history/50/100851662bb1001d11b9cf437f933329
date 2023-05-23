@@ -1,6 +1,0 @@
-
-public class TestGerente {
-	public static void main(String[] args) {
-		Gerente gerenteX = new Gerente();
-	}
-}
